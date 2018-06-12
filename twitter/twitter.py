@@ -7,21 +7,17 @@ AUTH = OAuth1Session(API_KEY,API_SECRET)
 
 
 def tweets(username):
-    user_timeline= "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="+username+"&count=10""&tweet_mode=extended"
+    user_timeline= "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="+username+"&count=2""&tweet_mode=extended"
     USER=AUTH.get(user_timeline)
     if(USER.status_code == 404):
-<<<<<<< HEAD
-     print "Please check username"
-=======
      print "Please check username!!!!"
->>>>>>> eb484faca43543f85b9c63137d3c10e21115d0a5
     else:    
      print "TWEETS:\n" 
      TWEETS = json.loads(USER.text)
      DATA=[]
      for i in TWEETS:
-        DATA.append(i["created_at"]+"\n"+i["full_text"])
-     pprint.pprint(DATA)
+        print(i["full_text"]) 
+     
 
 
 USER_NAME = raw_input("enter your Twitter UserName:")

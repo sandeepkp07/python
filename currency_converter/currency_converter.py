@@ -4,6 +4,7 @@ import ast
 def converter(cfrm,cto,amt):
     res=requests.get("https://api.fixer.io/latest?base="+cfrm)
     text = ast.literal_eval(res.text)
+    print text
     rates = text["rates"]
     print "YOU CAN CONVERT IT TO:\n",rates.keys()
     amount = (rates[cto])*(float(amt))
